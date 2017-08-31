@@ -1,0 +1,51 @@
+<!-- DOCTYPE html -->
+<html>
+<head>
+  <meta charset="utf-8"></meta>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/waam1.css">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="js/setup.js"></script>
+  <script src="js/game.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-xl navbar-inverse bg-inverse fixed-top">
+		<a class="navbar-brand" href="#">WA&amp;M1</a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#">Link</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#">Disabled</a>
+			</li>
+		</ul>
+  </nav><!--navbar-->
+  <div class="container-fluid content">
+    <span class="row">
+      <div class="col-sm-3">
+        <img src="assets/linux-icon.png" style="width:144px;height:144px;"><br>
+        <h2>Some Text</h2>
+        <div class="row">
+          <div class="col label-default">Level <span class="badge" id="yourLevel">-1</span></div>
+          <div class="w-100"></div>
+          <div class="col label-default">Dollaridoos <span class="badge" id="yourMoney">-1</span></div>
+        </div>
+        <ul>
+          <li><input class="btn btn-info" type="button" onclick="showUpgrades()" value="Upgrades"></li>
+          <li><input class="btn btn-danger" type="button" onclick="restart()" value="Restart"></li>
+        </ul>
+      </div>
+      <div class="col-sm-9 container-fluid">
+        <div class="row" id="theClickers">
+        </div>
+      </div>
+    </span>
+  </div>
+</body>
+</html>
