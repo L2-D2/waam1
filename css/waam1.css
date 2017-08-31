@@ -3,10 +3,14 @@
 }
 
 .clickerBar {
-  margin-right: 1rem;
+  margin-left: 1rem;
   background-color: blue;
 }
 
 .btn {
   margin-bottom: 1rem;
+}
+
+progress:after {
+  content: attr(value)'%';
 }

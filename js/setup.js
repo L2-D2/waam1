@@ -15,40 +15,57 @@ const CLICKERS = {
 
 function Clicker(label, increment) {
   this.label = label;
-  this.button = $("<input>",  {
-    class: "btn btn-default btn-sm",
-    value: label,
-    type: "button",
-    width: "8rem",
-  });
-  this.bar = $("<div>")
-    .addClass("clickerBar")
-    .add("<span>", {
-      id: label,
-      data: this.value
-    });
   this.increment = increment;
   this.value = 0;
   this.maximum = 1000000*this.increment;
+  this.updateBar = function(val) {
+    // let percent = (val/this.maximum)/100;
+    // // console.log(val, this.value);
+    $(".btn."+this.label).append(val.toString());
+    $("#"+this.label).val(val);
+  };
+  this.addification = function(i) {
+    this.value += i;
+    this.updateBar(this.value);
+    console.log("omg why is this happening!??!?!")
+    // console.log( [ this.value, "#"+this.label, $("#"+this.label).val() ] )
+  }
+  this.button = $("<input>",  {
+    class: "btn btn-default btn-sm "+this.label,
+    value: label,
+    type: "button",
+    onclick: this.addification(increment),
+    width: "6.6rem",
+  });
+  this.bar = $("<progress>", {
+    class: "clickerBar",
+    id: this.label,
+    max: this.maximum,
+    value: this.value,
+    width: "6.6rem"
+  });
+
   this.makeAClicker = function() {
     let div = $("<div>").addClass("col-sm-4 justify-content-center");
     let neuDiv = $(div).append(this.button).append(this.bar);
     $("#theClickers").append(neuDiv);
   };
-  this.updateBar = function(val) {
-    let percent = (val/this.maximum)/100;
-    $("#"+this.label).animate({width: `${percent}%`}, 420);
-  };
+
+};
+
+function restart() {
+  $("progress").val(0);
 }
 
 $( function(){
   var LIVECLICKERS = new Array;
   for (let e in CLICKERS) {
     let neuClicker = new Clicker(e, CLICKERS[e]);
-    neuClicker.value = 420*neuClicker.increment;
-    neuClicker.updateBar(neuClicker.value);
+    // console.log(neuClicker);
+    neuClicker.value = 420/neuClicker.increment;
     LIVECLICKERS.push(neuClicker);
     neuClicker.makeAClicker();
+    neuClicker.updateBar(neuClicker.value);
   };
 
 });
